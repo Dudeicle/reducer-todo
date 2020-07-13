@@ -1,5 +1,9 @@
 import React, { useState, useReducer } from 'react';
+
 import { initialStateValues, reducer } from './reducers/TodoReducer.js';
+import TodoList from './components/TodoList.js';
+
+
 
 const App = () => {
 
@@ -31,12 +35,8 @@ const handleChanges = e => {
 
   return (
     <div>
-      Hello
-      <div>
-        hello
-      </div>
-      <form>
 
+      <form>
         <input 
           type="text"
           name="item"
@@ -49,9 +49,12 @@ const handleChanges = e => {
         >
           Submit To Do Item
         </button>
-
       </form>
 
+      <div>
+        <TodoList state={state} />
+      </div>
+      
     </div>
   )
 }
