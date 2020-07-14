@@ -25,12 +25,15 @@ const handleSubmit = e => {
   e.preventDefault();
   addItem(newTodoItem);
   setNewTodoItem("")
-}
+};
 
 const handleChanges = e => {
   setNewTodoItem(e.target.value);
 };
 
+const toggleItem = itemId => {
+  dispatch({ type: "TOGGLE_COMPLETED", payload: itemId });
+};
 
 
   return (
@@ -52,9 +55,9 @@ const handleChanges = e => {
       </form>
 
       <div>
-        <TodoList state={state} />
+        <TodoList state={state} toggleItem={toggleItem} />
       </div>
-      
+
     </div>
   )
 }
