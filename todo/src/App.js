@@ -35,6 +35,11 @@ const toggleItem = itemId => {
   dispatch({ type: "TOGGLE_COMPLETED", payload: itemId });
 };
 
+const clearEntries = (foo) => {
+  foo.preventDefault();
+  dispatch({ type: "CLEAR_COMPLETED", payload: foo })
+}
+
 
   return (
     <div>
@@ -51,6 +56,11 @@ const toggleItem = itemId => {
           onClick={handleSubmit}
         >
           Submit To Do Item
+        </button>
+        <button
+          onClick={clearEntries}
+        >
+          Clear Completed Items
         </button>
       </form>
 

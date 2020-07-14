@@ -19,6 +19,7 @@
           ...state,
           action.payload
         ];
+
       case "TOGGLE_COMPLETED":
         return state.map(item => {
           if (item.id === action.payload) {
@@ -30,6 +31,12 @@
             return item;
           }
         })
+
+      case "CLEAR_COMPLETED":
+        return state.filter(itemCompleted => {
+            return itemCompleted.completed === false;
+        });
+
       default:
         return state;
     }
